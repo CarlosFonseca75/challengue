@@ -77,3 +77,5 @@ the page and the javascript is fully loaded when nothing worked and write `timeo
 is being opened in every request.
 
 In addition, I built a small `API` using `Express.js` and made it into a service that everyone can use, making it easier to run using the `dockerfile`.
+
+Thank you so much for this challengue, I enjoyed it and I'm excited to learn more! 🥳
