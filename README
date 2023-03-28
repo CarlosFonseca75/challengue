@@ -1,0 +1,73 @@
+### Backend developer challengue.
+
+This project extract a list of products from the website `wallmart.com` in JSON format using the technique `Web Scrapping`.
+
+### Prerequisites.
+
+` * Important *` The dockerfile is not working yet, to run the project locally install:
+1. Node.js (this project is using version 18.15.0).
+2. Npm (this project is using version 9.5.0).
+3. Open a terminal in the project directory.
+3. Run the command:
+
+```console
+    npm install
+```
+
+4. In the same terminal run:
+
+```console
+    npm run start
+```
+
+Once the docker files works, to run this project you will need:
+
+1. Docker installed.
+2. Run the command:
+3. Open a terminal where the `dockerfile` is located and run:
+
+```console
+    docker build -t app .
+```
+
+4. In the same terminal run:
+
+```console
+    docker run -p 3000:3000 app
+```
+
+### Dependencies used. https://docs.google.com/document/d/1QjF9_3lJWzeB1QqyQX_Y-pyHuXeC22yY-VAFWJe2KKw/edit
+
+1. Axios: This library is used to make `HTTP requests` and fetch website content.
+2. Cheerio: It is a useful library for performing `Web Scraping` tasks.
+3. Puppeteer: It is a library that offers more advanced features for `Web Scraping`.
+4. Tough-cookie: This library is used to generate and manage cookies.
+5. Express: This is a powerful library for building Javascript servers using `Node.js`.
+6. Nodemon: This library is commonly used for development purposes, as it monitors changes in the code and automatically restarts the server.
+
+### About this project.
+
+This project starts a web server using `Express.js` and initialize a route in `/` to reach some products from the Walmart website using `Web Scraping`.
+
+### Comments.
+
+This was a great challenge for me, and I learned a lot because I had never had the opportunity to use web scraping before. It's interesting to see the different approaches we can take, as well as the different libraries available for use.
+
+I encountered a couple of blockers during this challenge:
+
+1. I tried using the `Cheerio` library because it was easier to use than any other library I found on the internet, and with the `Axios` library to make HTTP requests to get the website content. However, when I tried to fetch the content using `Axios` the `Wallmart` website was blocking my requests so investigating I realized that I had to
+   set a `cookie` in the request's headers and it worked! But after some requests it failed again 😞. Doing some research I found
+   that I had to generate a random cookie dynamically for every request so my request cannot be blocked, that's why I'm using the library `Tough-Cookie`, this solved my issue. 🥳
+
+2. Playing a little bit and moving around the HTML tags using `Cheerio,` I realized that some of them were missing, even though I could see them in the browser console. This happened because some pages have dynamic content that is loaded using JavaScript (not server-side rendering). As a result, when I was reading the HTML content, the dynamic content was not loaded yet, and I could not find the missing elements. Therefore, I had to use the `Puppeteer` library, which is a bit more complicated to use but has more advanced tools.
+   I used `Puppeteer` to load the content of the website and `Cheerio` to move and get elements from the HTML content. With `Puppeteer`, I could wait until the full page and JavaScript were fully executed and loaded, and finally, I could see my content. With `Puppeteer,` I can avoid using `Axios` to fetch the content, but I left the helper anyway.
+
+3. As I mentioned before, this was my first time practicing with web scraping, and it took me a lot of time to analyze the HTML content and create the final JSON result. Since this was a very short challenge, I decided to use a different Walmart URL to read the products, so I was able to read and format some of the products found in a carousel in some of the 
+"Abarrotes" paths of the website. With a little bit more time I could have finished it. 🥴
+
+4. When I was building the docker file, I found a problem installing chronium I need to investigate a little bit more the best way to use puppeter in a docker container.
+
+5. I realized that the products are read only when the `headless` flag is set to `false` when running the `Puppeteer` browser, I tried multiple ways to make it `wait` until
+the page and the javascript is fully loaded when nothing worked and write `timeouts` are not the best approach in my opinion. So this is pending.
+
+In addition, I built a small `API` using `Express.js` and made it into a service that everyone can use, making it easier to run using the `dockerfile`.
