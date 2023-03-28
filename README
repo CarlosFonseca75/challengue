@@ -2,9 +2,9 @@
 
 This project extract a list of products from the website `wallmart.com` in JSON format using the technique `Web Scrapping`.
 
-### Prerequisites.
+### Prerequisites (locally).
 
-` * Important *` The dockerfile is not working yet, to run the project locally install:
+To run the project locally:
 1. Node.js (this project is using version 18.15.0).
 2. Npm (this project is using version 9.5.0).
 3. Open a terminal in the project directory.
@@ -19,8 +19,11 @@ This project extract a list of products from the website `wallmart.com` in JSON 
 ```console
     npm run start
 ```
+5. Open a browser on http://localhost:3000 to see the list of products (cronium window will appear, this issue is pending and documented at the end of this file).
 
-Once the docker file works, to run this project you will need:
+
+### Prerequisites (using dockerfile).
+`(Pending)` To run the project using the dockerfile you will need:
 
 1. Docker installed.
 2. Run the command:
@@ -33,10 +36,12 @@ Once the docker file works, to run this project you will need:
 4. In the same terminal run:
 
 ```console
-    docker run -p 3000:3000 app
+    docker run -p 3000:3000 app -d
 ```
 
-### Dependencies used. https://docs.google.com/document/d/1QjF9_3lJWzeB1QqyQX_Y-pyHuXeC22yY-VAFWJe2KKw/edit
+5. Open a browser on http://localhost:3000
+
+### Dependencies used.
 
 1. Axios: This library is used to make `HTTP requests` and fetch website content.
 2. Cheerio: It is a useful library for performing `Web Scraping` tasks.
@@ -47,7 +52,7 @@ Once the docker file works, to run this project you will need:
 
 ### About this project.
 
-This project starts a web server using `Express.js` and initialize a route in `/` to reach some products from the Walmart website using `Web Scraping`.
+This project starts a web server using `Express.js` and initialize a route in `/` to reach and format some products from the Walmart website using `Web Scraping`.
 
 ### Comments.
 
