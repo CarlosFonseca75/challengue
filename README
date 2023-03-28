@@ -20,7 +20,7 @@ To run the project locally:
     npm run start
 ```
 
-5. Open a browser on http://localhost:3000 to see the list of products (cronium window will appear, close it and go back to your browser,
+5. Open a browser on http://localhost:3000 to see the list of products (cronium window will appear, wait a few seconda until the page loads and go back to your browser,
 this issue is pending and documented at the end of this file).
 
 
